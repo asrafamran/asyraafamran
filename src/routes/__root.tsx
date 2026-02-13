@@ -2,7 +2,8 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import * as React from "react";
-import appCss from '../styles.css?url'
+import appCss from "../styles.css?url";
+import favicon from "../favicon.ico?url";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,7 +16,10 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: favicon },
+    ],
   }),
   notFoundComponent: () => <div>404 - Not Found</div>,
   shellComponent: RootDocument,
