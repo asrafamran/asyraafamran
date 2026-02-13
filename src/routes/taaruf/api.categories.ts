@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { createDb, schema } from "../../db/index.js";
+import { createDb, schema } from "../../db/index";
 
-export const Route = createFileRoute("/taaruf/categories")({
+export const Route = createFileRoute("/taaruf/api/categories")({
   server: {
     handlers: {
       GET: async () => {
