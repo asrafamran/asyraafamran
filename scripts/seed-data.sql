@@ -1,5 +1,4 @@
 PRAGMA defer_foreign_keys = OFF;
-BEGIN TRANSACTION;
 
 DELETE FROM "taaruf-questions";
 DELETE FROM "taaruf-categories";
@@ -136,5 +135,3 @@ INSERT INTO "taaruf-questions" ("category_id", "question_text") VALUES
 ('hypothetical', 'If you could time travel, would you go to the past or future?'),
 ('hypothetical', 'If you had to delete all but three apps from your phone, which would you keep?'),
 ('hypothetical', 'If our life together was a movie, what genre would it be?');
-
-COMMIT;

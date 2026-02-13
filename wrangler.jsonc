@@ -7,11 +7,18 @@
   "observability": {
     "enabled": true,
   },
+  "routes": [
+    {
+      "pattern": "asyraafamran.com",
+      "custom_domain": true,
+    }
+  ],
   "d1_databases": [
         {
             "binding": "DB",
             "database_name": "asyraafamran",
-            "migrations_dir": "drizzle"
+            "migrations_dir": "drizzle",
+            "database_id": "a162742f-7c65-4033-ae3c-1d403ca91376"
         }
     ]
 }

@@ -23,11 +23,11 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html className="h-full">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="h-full">
         <hr />
         {children}
         <TanStackRouterDevtools position="bottom-right" />

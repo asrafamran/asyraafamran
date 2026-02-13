@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TaarufIndexRouteImport } from './routes/taaruf/index'
+import { Route as TaarufCategorySlugRouteImport } from './routes/taaruf/$categorySlug'
 import { Route as TaarufApiRandomRouteImport } from './routes/taaruf/api.random'
 import { Route as TaarufApiCategoriesRouteImport } from './routes/taaruf/api.categories'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const TaarufIndexRoute = TaarufIndexRouteImport.update({
   id: '/taaruf/',
   path: '/taaruf/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaarufCategorySlugRoute = TaarufCategorySlugRouteImport.update({
+  id: '/taaruf/$categorySlug',
+  path: '/taaruf/$categorySlug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TaarufApiRandomRoute = TaarufApiRandomRouteImport.update({
@@ -37,12 +43,14 @@ const TaarufApiCategoriesRoute = TaarufApiCategoriesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/taaruf/$categorySlug': typeof TaarufCategorySlugRoute
   '/taaruf/': typeof TaarufIndexRoute
   '/taaruf/api/categories': typeof TaarufApiCategoriesRoute
   '/taaruf/api/random': typeof TaarufApiRandomRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/taaruf/$categorySlug': typeof TaarufCategorySlugRoute
   '/taaruf': typeof TaarufIndexRoute
   '/taaruf/api/categories': typeof TaarufApiCategoriesRoute
   '/taaruf/api/random': typeof TaarufApiRandomRoute
@@ -50,18 +58,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/taaruf/$categorySlug': typeof TaarufCategorySlugRoute
   '/taaruf/': typeof TaarufIndexRoute
   '/taaruf/api/categories': typeof TaarufApiCategoriesRoute
   '/taaruf/api/random': typeof TaarufApiRandomRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/taaruf/' | '/taaruf/api/categories' | '/taaruf/api/random'
+  fullPaths:
+    | '/'
+    | '/taaruf/$categorySlug'
+    | '/taaruf/'
+    | '/taaruf/api/categories'
+    | '/taaruf/api/random'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/taaruf' | '/taaruf/api/categories' | '/taaruf/api/random'
+  to:
+    | '/'
+    | '/taaruf/$categorySlug'
+    | '/taaruf'
+    | '/taaruf/api/categories'
+    | '/taaruf/api/random'
   id:
     | '__root__'
     | '/'
+    | '/taaruf/$categorySlug'
     | '/taaruf/'
     | '/taaruf/api/categories'
     | '/taaruf/api/random'
@@ -69,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TaarufCategorySlugRoute: typeof TaarufCategorySlugRoute
   TaarufIndexRoute: typeof TaarufIndexRoute
   TaarufApiCategoriesRoute: typeof TaarufApiCategoriesRoute
   TaarufApiRandomRoute: typeof TaarufApiRandomRoute
@@ -90,6 +111,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TaarufIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/taaruf/$categorySlug': {
+      id: '/taaruf/$categorySlug'
+      path: '/taaruf/$categorySlug'
+      fullPath: '/taaruf/$categorySlug'
+      preLoaderRoute: typeof TaarufCategorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/taaruf/api/random': {
       id: '/taaruf/api/random'
       path: '/taaruf/api/random'
@@ -109,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TaarufCategorySlugRoute: TaarufCategorySlugRoute,
   TaarufIndexRoute: TaarufIndexRoute,
   TaarufApiCategoriesRoute: TaarufApiCategoriesRoute,
   TaarufApiRandomRoute: TaarufApiRandomRoute,

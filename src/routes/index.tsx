@@ -5,5 +5,5 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
-  return <div>Asyraaf Amran</div>
+  return <div className='flex items-center justify-center h-full'>Asyraaf Amran</div>
 }
