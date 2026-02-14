@@ -14,6 +14,64 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/taaruf/")({
+  head: () => ({
+    meta: [
+      {
+        title: "100 Soalan Taaruf | Kenali Pasangan Anda Secara Mendalam",
+      },
+      {
+        name: "description",
+        content:
+          "Koleksi 100 soalan taaruf serius, lucu, dan out-of-context untuk mengenali calon pasangan anda dengan lebih baik. Mulakan perjalanan perkahwinan anda dengan keyakinan dan kejelasan.",
+      },
+      {
+        property: "og:title",
+        content: "100 Soalan Taaruf | Kenali Pasangan Anda Secara Mendalam",
+      },
+      {
+        property: "og:description",
+        content:
+          "Koleksi 100 soalan taaruf serius, lucu, dan out-of-context untuk mengenali calon pasangan anda dengan lebih baik. Mulakan perjalanan perkahwinan anda dengan keyakinan dan kejelasan.",
+      },
+      {
+        property: "og:image",
+        content: "/og-image.webp",
+      },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "630",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content: "https://asyraafamran.com",
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:title",
+        content: "100 Soalan Taaruf | Kenali Pasangan Anda Secara Mendalam",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Koleksi 100 soalan taaruf serius, lucu, dan out-of-context untuk mengenali calon pasangan anda dengan lebih baik.",
+      },
+      {
+        name: "twitter:image",
+        content: "/og-image.webp",
+      },
+    ],
+  }),
   ssr: false,
   loader: () => {
     return getTaarufCategories();
